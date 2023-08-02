@@ -1,4 +1,4 @@
-﻿using TestClass;
+﻿using ThreeAndTwo;
 
 internal class Program
 {
