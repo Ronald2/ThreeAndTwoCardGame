@@ -1,6 +1,6 @@
 using System;
 
-namespace TestClass
+namespace ThreeAndTwo
 {
     public class Card
     {

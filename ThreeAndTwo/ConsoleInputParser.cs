@@ -1,4 +1,4 @@
-﻿namespace TestClass
+﻿namespace ThreeAndTwo
 {
     public static class ConsoleInputParser
     {

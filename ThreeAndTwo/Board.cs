@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace TestClass
+namespace ThreeAndTwo
 {
     public class Board
     {

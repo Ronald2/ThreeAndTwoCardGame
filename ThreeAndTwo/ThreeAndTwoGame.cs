@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TestClass
+namespace ThreeAndTwo
 {
     public class ThreeAndTwoGame
     {
