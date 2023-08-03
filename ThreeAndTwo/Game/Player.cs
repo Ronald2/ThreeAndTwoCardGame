@@ -41,12 +41,10 @@ namespace ThreeAndTwo.Game
             }
         }
 
-        public override string ToString()
+        public string ShowHand()
         {
-            var playerHand = hand.Select((card, index) => $"{index + 1}: {card}");
-            return $"Player: {Name}, Hand: {string.Join(", ", playerHand)}";
+            var playerHand = hand.Select((card, index) => $"{index + 1}-{card}");
+            return $"Hand: {string.Join(", ", playerHand)}";
         }
-
-
     }
 }

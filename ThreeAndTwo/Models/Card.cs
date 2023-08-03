@@ -1,4 +1,6 @@
-namespace ThreeAndTwo
+using ThreeAndTwo.UI;
+
+namespace ThreeAndTwo.Models
 {
     public class Card
     {
@@ -23,7 +25,7 @@ namespace ThreeAndTwo
         {
             if (IsFaceUp)
             {
-                return $"**[{cardDesigns.GetCardDesign(Rank, Suit)}]**";
+                return cardDesigns.GetCardDesign(Rank, Suit);
             }
             else
             {

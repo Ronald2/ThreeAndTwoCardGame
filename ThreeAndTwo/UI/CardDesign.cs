@@ -1,4 +1,5 @@
 ﻿using ThreeAndTwo;
+using ThreeAndTwo.Models;
 
 namespace ThreeAndTwo
 {
@@ -38,7 +39,7 @@ namespace ThreeAndTwo
 
         public string GetCardDesign(CardRank rank, CardSuit suit)
         {
-            return $"{rankDesigns[rank]}{suitDesigns[suit]}";
+            return $"|{rankDesigns[rank]}{suitDesigns[suit]}|";
         }
     }
 }

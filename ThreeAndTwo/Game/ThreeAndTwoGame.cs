@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using ThreeAndTwo.Models;
+using ThreeAndTwo.UI;
 
-namespace ThreeAndTwo
+namespace ThreeAndTwo.Game
 {
     public class ThreeAndTwoGame
     {
@@ -38,14 +40,14 @@ namespace ThreeAndTwo
         {
             board.DealCardToPlayer(player);
 
-            ConsoleUI.DisplayMessage($"\n {player.Name} has taken a card. \n");
+            ConsoleUI.DisplayMessage($"\n{player.Name} has taken a card. \n");
             ConsoleUI.DisplayPlayer(player);
 
             int index;
             string input;
             do
             {
-                ConsoleUI.DisplayMessage("Enter the index of the card you want to discard:");
+                ConsoleUI.DisplayMessage("\nEnter the index of the card you want to discard:");
                 input = Console.ReadLine() ?? "";
             } while (!ConsoleInputParser.TryParseCardIndex(input, player.Hand.Count(), out index));
 
