@@ -1,11 +1,10 @@
-using System;
-
 namespace ThreeAndTwo
 {
     public class Card
     {
         public CardRank Rank { get; }
         public CardSuit Suit { get; }
+        private static CardDesigns cardDesigns = new CardDesigns();
         public bool IsFaceUp { get; private set; }
 
         public Card(CardRank rank, CardSuit suit)
@@ -24,7 +23,7 @@ namespace ThreeAndTwo
         {
             if (IsFaceUp)
             {
-                return $"{Rank} of {Suit}";
+                return $"**[{cardDesigns.GetCardDesign(Rank, Suit)}]**";
             }
             else
             {
