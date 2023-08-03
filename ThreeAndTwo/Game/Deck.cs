@@ -1,6 +1,7 @@
 using System.Text;
+using ThreeAndTwo.Models;
 
-namespace ThreeAndTwo
+namespace ThreeAndTwo.Game
 {
     public class Deck
     {

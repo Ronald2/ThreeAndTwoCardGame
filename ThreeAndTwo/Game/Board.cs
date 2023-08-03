@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using ThreeAndTwo.Models;
 
-namespace ThreeAndTwo
+namespace ThreeAndTwo.Game
 {
     public class Board
     {

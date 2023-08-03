@@ -1,4 +1,4 @@
-﻿namespace ThreeAndTwo
+﻿namespace ThreeAndTwo.UI
 {
     public static class ConsoleInputParser
     {

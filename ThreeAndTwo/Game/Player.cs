@@ -1,9 +1,11 @@
-namespace ThreeAndTwo
+using ThreeAndTwo.Models;
+
+namespace ThreeAndTwo.Game
 {
     public class Player
     {
         public string Name { get; }
-        private List<Card> hand { get; set;}
+        private List<Card> hand { get; set; }
 
         public IEnumerable<Card> Hand => hand;
 
@@ -45,6 +47,6 @@ namespace ThreeAndTwo
             return $"Player: {Name}, Hand: {string.Join(", ", playerHand)}";
         }
 
-        
+
     }
 }

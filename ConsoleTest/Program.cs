@@ -1,4 +1,5 @@
 ﻿using ThreeAndTwo;
+using ThreeAndTwo.Game;
 
 internal class Program
 {

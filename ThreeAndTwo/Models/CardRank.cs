@@ -1,4 +1,4 @@
-namespace ThreeAndTwo
+namespace ThreeAndTwo.Models
 {
     public enum CardRank
     {
