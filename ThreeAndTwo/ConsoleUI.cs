@@ -10,7 +10,7 @@ public static class ConsoleUI
         Console.Write("How many players? ");
         while (!int.TryParse(Console.ReadLine(), out numOfPlayers) || numOfPlayers <= 0)
         {
-            Console.Write("Please enter a valid number of players (greater than 0): ");
+            Console.Write("Please enter a valid number of players (max 5 players: ");
         }
         return numOfPlayers;
     }
@@ -38,7 +38,7 @@ public static class ConsoleUI
         Console.WriteLine("Objective: The goal of the game is to collect a hand with three cards of the same rank (three-of-a-kind) and two cards of another rank (a pair).");
         Console.WriteLine("           The first player to achieve this combination wins the game.");
         Console.WriteLine("\nHow to Play:");
-        Console.WriteLine("1. Enter the number of players participating in the game (should be greater than 0), max players are 5.");
+        Console.WriteLine("1. Enter the number of players participating in the game (should be greater than 0), max 5 players.");
         Console.WriteLine("2. Enter the name of each player when prompted.");
         Console.WriteLine("3. The game will automatically deal cards to each player.");
         Console.WriteLine("4. During each player's turn, they will draw a card from the deck and can choose to discard a card from their hand.");
@@ -48,7 +48,7 @@ public static class ConsoleUI
         Console.WriteLine("----------------------------------------\n");
     }
 
-    internal static void ClearScreen()
+    public static void ClearScreen()
     {
         Console.Clear();
     }
