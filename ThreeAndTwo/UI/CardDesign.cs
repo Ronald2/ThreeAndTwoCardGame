@@ -1,7 +1,6 @@
-﻿using ThreeAndTwo;
-using ThreeAndTwo.Models;
+﻿using ThreeAndTwo.Models;
 
-namespace ThreeAndTwo
+namespace ThreeAndTwo.UI
 {
     public class CardDesigns
     {

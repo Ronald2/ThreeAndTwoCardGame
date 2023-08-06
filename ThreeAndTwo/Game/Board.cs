@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using ThreeAndTwo.Models;
 
 namespace ThreeAndTwo.Game

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using ThreeAndTwo.Models;
 using ThreeAndTwo.UI;
 
@@ -10,7 +8,7 @@ namespace ThreeAndTwo.Game
         private const int NumCardsToDeal = 5;
         private readonly Board board;
         private readonly List<Player> players;
-        private Player? winner;
+        private Player winner;
 
         public ThreeAndTwoGame()
         {
@@ -19,7 +17,7 @@ namespace ThreeAndTwo.Game
         }
 
         // Properties for encapsulation
-        public Player? Winner => winner;
+        public Player Winner => winner;
         public IReadOnlyList<Player> Players => players;
 
         // Add a player to the game, with the given name
@@ -51,7 +49,7 @@ namespace ThreeAndTwo.Game
                 input = Console.ReadLine() ?? "";
             } while (!ConsoleInputParser.TryParseCardIndex(input, player.Hand.Count(), out index));
 
-            Card? card = player.Discard(index);
+            Card card = player.Discard(index);
             if (card != null)
             {
                 board.Discard(card);

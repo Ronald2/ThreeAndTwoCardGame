@@ -15,7 +15,7 @@ namespace ThreeAndTwo.Game
             hand = new List<Card>();
         }
 
-        public Card? Draw(Deck deck)
+        public Card Draw(Deck deck)
         {
             if (deck.Cards.Count > 0)
             {
@@ -27,7 +27,7 @@ namespace ThreeAndTwo.Game
             return null;
         }
 
-        public Card? Discard(int index)
+        public Card Discard(int index)
         {
             if (index < 1 || index > hand.Count)
             {
