@@ -1,11 +1,11 @@
-﻿using ThreeAndTwo;
-using ThreeAndTwo.Game;
+﻿using ThreeAndTwo.Game;
+using ThreeAndTwo.UI;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.OutputEncoding = System.Text.Encoding.UTF8; //For displaying card symbols.
+        Console.OutputEncoding = System.Text.Encoding.UTF8; //For displaying card symbols (♠, ♣, ♥, ♦).
 
         ConsoleUI.DisplayGameInstructions();
 

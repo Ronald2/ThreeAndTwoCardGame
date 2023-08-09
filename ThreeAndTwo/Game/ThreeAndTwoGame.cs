@@ -8,33 +8,48 @@ namespace ThreeAndTwo.Game
         private const int NumCardsToDeal = 5;
         private readonly Board board;
         private readonly List<Player> players;
-        private Player winner;
+        public IReadOnlyList<Player> Players => players;
 
         public ThreeAndTwoGame()
         {
             players = new List<Player>();
-            board = new Board();
+            board = new Board(players);
         }
-
-        // Properties for encapsulation
-        public Player Winner => winner;
-        public IReadOnlyList<Player> Players => players;
 
         // Add a player to the game, with the given name
         public void AddPlayer(string name)
         {
             var player = new Player(name);
             players.Add(player);
-            board.AddPlayer(player);
+        }
+
+        public void Play()
+        {
+            Deal();
+
+            while (true)
+            {
+                foreach (var player in players)
+                {
+                    ConsoleUI.ClearScreen();
+                    TakeTurn(player);
+                    if (CheckIsWinner(player))
+                    {
+                        ConsoleUI.DisplayMessage($"\n {player.Name} wins!");
+                        return;
+                    }
+                }
+            }
+
         }
 
         // Deal 5 cards to each player
-        public void Deal()
+        private void Deal()
         {
-            board.DealCardsToPlayers(NumCardsToDeal);
+            board.DealCardsToAllPlayers(NumCardsToDeal);
         }
 
-        public void TakeTurn(Player player)
+        private void TakeTurn(Player player)
         {
             board.DealCardToPlayer(player);
 
@@ -52,49 +67,38 @@ namespace ThreeAndTwo.Game
             Card card = player.Discard(index);
             if (card != null)
             {
-                board.Discard(card);
+                board.DiscardToSideDeck(card);
             }
         }
 
-
-        // Check for a winner among the players
-        public bool CheckForWinner()
+        private bool CheckIsWinner(Player player)
         {
-            foreach (var player in players)
+            var isWinner = (HasThreeOfAKindAndPair(player));
+            return isWinner;
+        }
+
+        private bool HasThreeOfAKindAndPair(Player player)
+        {
+            var rankCount = new Dictionary<CardRank, int>();
+            foreach (var card in player.Hand)
             {
-                if (board.HasThreeOfAKindAndPair(player))
+                if (rankCount.ContainsKey(card.Rank))
                 {
-                    winner = player;
-                    return true;
+                    rankCount[card.Rank]++;
+                }
+                else
+                {
+                    rankCount.Add(card.Rank, 1);
                 }
             }
-            return false;
+
+            return rankCount.ContainsValue(3) && rankCount.ContainsValue(2);
         }
 
-        // Reset the game
         public void Reset()
         {
             board.Reset();
             players.Clear();
-            winner = null;
-        }
-
-        // Play the game
-        public void Play()
-        {
-            Deal();
-
-            while (winner == null)
-            {
-                foreach (var player in players)
-                {
-                    ConsoleUI.ClearScreen();
-                    TakeTurn(player);
-                    if (CheckForWinner())
-                        break;
-                }
-            }
-            ConsoleUI.DisplayMessage($"\n {winner.Name} wins!");
         }
     }
 }

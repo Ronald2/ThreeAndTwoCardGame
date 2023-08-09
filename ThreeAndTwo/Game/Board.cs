@@ -12,21 +12,16 @@ namespace ThreeAndTwo.Game
         public Deck Deck => deck;
         public Deck DiscardPile => discardPile;
 
-        public Board()
+        public Board(List<Player> players)
         {
-            players = new List<Player>();
+            this.players = players;
             deck = new Deck();
             discardPile = new Deck();
             deck.Fill();
             deck.Shuffle();
         }
 
-        public void AddPlayer(Player player)
-        {
-            players.Add(player);
-        }
-
-        public void DealCardsToPlayers(int numCards)
+        public void DealCardsToAllPlayers(int numCards)
         {
             for (int i = 0; i < numCards; i++)
             {
@@ -43,13 +38,13 @@ namespace ThreeAndTwo.Game
             player.Draw(deck);
         }
 
-        public void Discard(Card card)
+        public void DiscardToSideDeck(Card card)
         {
             discardPile.Add(card);
         }
 
         // if deck is empty, shuffle discard pile and make it the deck
-        public void ShuffleDeckIfEmpty()
+        private void ShuffleDeckIfEmpty()
         {
             if (deck.Cards.Count == 0)
             {
@@ -57,24 +52,6 @@ namespace ThreeAndTwo.Game
                 discardPile = new Deck();
                 deck.Shuffle();
             }
-        }
-
-        public bool HasThreeOfAKindAndPair(Player player)
-        {
-            var rankCount = new Dictionary<CardRank, int>();
-            foreach (var card in player.Hand)
-            {
-                if (rankCount.ContainsKey(card.Rank))
-                {
-                    rankCount[card.Rank]++;
-                }
-                else
-                {
-                    rankCount.Add(card.Rank, 1);
-                }
-            }
-
-            return rankCount.ContainsValue(3) && rankCount.ContainsValue(2);
         }
 
         public void Reset()
