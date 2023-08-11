@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using ThreeAndTwo.Models;
 
 namespace ThreeAndTwo.Game
@@ -8,6 +9,7 @@ namespace ThreeAndTwo.Game
         private List<Card> hand { get; set; }
 
         public IEnumerable<Card> Hand => hand;
+        public int HandCount => hand.Count;
 
         public Player(string name)
         {
@@ -46,5 +48,6 @@ namespace ThreeAndTwo.Game
             var playerHand = hand.Select((card, index) => $"{index + 1}-{card}");
             return $"Hand: {string.Join(", ", playerHand)}";
         }
+
     }
 }

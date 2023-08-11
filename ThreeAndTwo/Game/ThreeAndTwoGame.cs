@@ -5,7 +5,7 @@ namespace ThreeAndTwo.Game
 {
     public class ThreeAndTwoGame
     {
-        private const int NumCardsToDeal = 5;
+        private const int NUM_CARDS_TO_DEAL = 5;
         private readonly Board board;
         private readonly List<Player> players;
         public IReadOnlyList<Player> Players => players;
@@ -25,7 +25,7 @@ namespace ThreeAndTwo.Game
 
         public void Play()
         {
-            Deal();
+            DealCardsToPlayers();
 
             while (true)
             {
@@ -44,9 +44,9 @@ namespace ThreeAndTwo.Game
         }
 
         // Deal 5 cards to each player
-        private void Deal()
+        private void DealCardsToPlayers()
         {
-            board.DealCardsToAllPlayers(NumCardsToDeal);
+            board.DealCardsToAllPlayers(NUM_CARDS_TO_DEAL);
         }
 
         private void TakeTurn(Player player)
@@ -62,10 +62,10 @@ namespace ThreeAndTwo.Game
             {
                 ConsoleUI.DisplayMessage("\nEnter the index of the card you want to discard:");
                 input = Console.ReadLine() ?? "";
-            } while (!ConsoleInputParser.TryParseCardIndex(input, player.Hand.Count(), out index));
+            } while (!ConsoleInputParser.TryParseCardIndex(input, player.HandCount, out index));
 
             Card card = player.Discard(index);
-            if (card != null)
+            if (card is Card)
             {
                 board.DiscardToSideDeck(card);
             }
@@ -73,7 +73,7 @@ namespace ThreeAndTwo.Game
 
         private bool CheckIsWinner(Player player)
         {
-            var isWinner = (HasThreeOfAKindAndPair(player));
+            var isWinner = HasThreeOfAKindAndPair(player);
             return isWinner;
         }
 
