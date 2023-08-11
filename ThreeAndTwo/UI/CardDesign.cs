@@ -2,12 +2,12 @@
 
 namespace ThreeAndTwo.UI
 {
-    public class CardDesigns
+    public class CardDesign
     {
         private Dictionary<CardRank, string> rankDesigns;
         private Dictionary<CardSuit, string> suitDesigns;
 
-        public CardDesigns()
+        public CardDesign()
         {
 
             rankDesigns = new Dictionary<CardRank, string>

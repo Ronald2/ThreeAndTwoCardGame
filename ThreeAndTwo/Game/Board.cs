@@ -43,7 +43,7 @@ namespace ThreeAndTwo.Game
             discardPile.Add(card);
         }
 
-        // if deck is empty, shuffle discard pile and make it the deck
+        //If the deck is empty, shuffle the discard pile and make it the new deck.
         private void ShuffleDeckIfEmpty()
         {
             if (deck.Cards.Count == 0)

@@ -6,7 +6,7 @@ namespace ThreeAndTwo.Models
     {
         public CardRank Rank { get; }
         public CardSuit Suit { get; }
-        private static CardDesigns cardDesigns = new CardDesigns();
+        private static CardDesign cardDesign = new CardDesign();
         public bool IsFaceUp { get; private set; }
 
         public Card(CardRank rank, CardSuit suit)
@@ -25,7 +25,7 @@ namespace ThreeAndTwo.Models
         {
             if (IsFaceUp)
             {
-                return cardDesigns.GetCardDesign(Rank, Suit);
+                return cardDesign.GetCardDesign(Rank, Suit);
             }
             else
             {
